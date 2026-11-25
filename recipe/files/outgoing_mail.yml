@@ -1,0 +1,14 @@
+# ReadyStack: outgoing mail (SMTP) from the environment (ERB). Without CANVAS_SMTP_ADDRESS Canvas tries localhost:25.
+# <% require "json" %>
+production:
+  address: <%= ENV.fetch("CANVAS_SMTP_ADDRESS", "localhost").to_json %>
+  port: <%= Integer(ENV.fetch("CANVAS_SMTP_PORT", "25")) %>
+<% if ENV["CANVAS_SMTP_USER_NAME"].to_s != "" %>
+  user_name: <%= ENV["CANVAS_SMTP_USER_NAME"].to_json %>
+  password: <%= ENV.fetch("CANVAS_SMTP_PASSWORD", "").to_json %>
+  authentication: <%= ENV.fetch("CANVAS_SMTP_AUTHENTICATION", "plain").to_json %>
+<% end %>
+  enable_starttls_auto: <%= ENV.fetch("CANVAS_SMTP_STARTTLS", "true") == "true" %>
+  domain: <%= ENV.fetch("CANVAS_SMTP_DOMAIN") { ENV.fetch("CANVAS_DOMAIN", "localhost").split(":").first }.to_json %>
+  outgoing_address: <%= ENV.fetch("CANVAS_SMTP_FROM") { "canvas@" + ENV.fetch("CANVAS_DOMAIN", "localhost").split(":").first }.to_json %>
+  default_name: <%= ENV.fetch("CANVAS_SMTP_FROM_NAME", "Canvas LMS").to_json %>

@@ -1,0 +1,8 @@
+image_manifest_digest=sha256:d50facf13fdbc9ac472597f5da7aa13fcd75ae6db96326f4087ef9b680574d89
+config_digest=sha256:1ce44b07eb8f2acfebfc59160732530bffe2efe197c955c484410a2945585c14
+tag=readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r8
+probe_port=3000
+probe_path=/health_check
+probe_timeout=2400
+verify_boot=skip
+verify_boot_reason=this image needs db, redis (not part of this archive); boot it with your own services as the admin handbook describes

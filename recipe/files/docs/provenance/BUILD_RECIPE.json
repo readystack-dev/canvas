@@ -1,0 +1,101 @@
+{
+  "schema": "kitforge.build_recipe.v1",
+  "slug": "canvas",
+  "image": "readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r8",
+  "build_method": "source-rebuild-ruby",
+  "source": {
+    "repo": "https://github.com/instructure/canvas-lms",
+    "ref": "release/2026-05-20.143",
+    "commit": "2e2b4a46d08e32667d4845f7b78e1214250345d3",
+    "source_date_epoch": 1795160997,
+    "source_date_epoch_provenance": "the time release 2026-05-20.143-CE-ubuntu24.04-r8 was cut (2026-11-20T07:49:57Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 2e2b4a46d08e, dated 2026-04-30T13:50:04Z (source.commit_epoch).",
+    "_version_note": "Upstream publishes no GitHub release and no semver tag after v5.14.2 (2025-01-03). Its deployments are tagged release/<date>.<n>; the newest (2026-10-22) is release/2026-05-20.143, tag object 0e87d5c6 -> commit 2e2b4a46, which is also the head of branch stable/2026-05-20, upstream's newest stable/ branch. master's head (1c9f0bb, 2026-04-30) is the development line of the same day. The repository has had no push since 2026-04-30 (GitHub pushed_at). Version string 2026-05-20.143 names that tag.",
+    "ruby": {
+      "version": "3.4.13",
+      "sha256": "d0d3bf3dd8c224a3c3b7ecd816a0f1b2cbcf4f87b5afcbdbe91d3fef177f351a",
+      "gem_updates": [
+        {
+          "name": "net-imap",
+          "version": "0.6.8"
+        }
+      ],
+      "_note": "UPDATE 2026-11-22: 3.4.13 is the newest 3.4 on ruby-lang.org (released 2026-11-18; index.txt sha256 and the release announcement; the tarball downloaded 2026-11-22 hashes to it). It replaces 3.4.12 for GHSA-34m4-m9fh-gqp5, GHSA-7x2q-68qv-6p8x, GHSA-3p8q-wmhx-vm2w (critical), CVE-2026-132825 and GHSA-87fm-7w84-j2px, GHSA-wpqw-5qxg-m68r, GHSA-7whj-cfh7-xgm4 (high): seven Regexp and String case-conversion bugs, some with public PoCs for remote code execution, fixed in 4.0.10, 3.4.13 and 3.3.14 (ruby-lang.org advisory, 2026-11-18). Earlier notes below were written for 3.4.12 and name it as it was then. Gemfile.d/_before.rb: ruby '>= 3.4.1' (the lock records 3.4.1); upstream's Dockerfile.production builds on Ruby 3.4. 3.4.12 is the newest 3.4 on ruby-lang.org (released 2026-10-23; index.txt sha256, read 2026-11-08). It replaces 3.4.11 (r1, r2) for CVE-2026-97229 (CISA KEV since 2026-10-29): an integer overflow in the size of a compiled regular expression in Ruby's Onigmo engine (ruby/ruby #19020), fixed in 3.4.12 together with the bugs behind CVE-2026-89078, CVE-2026-93577 and CVE-2026-110264 (ruby-lang.org, 2026-10-23). 3.4.11 -> 3.4.12 (26 commits) changes the interpreter's C sources, no file under lib/ and not gems/bundled_gems: its default and bundled gems are 3.4.11's. gem_updates: Ruby 3.4.12 bundles net-imap 0.5.15 (as 3.4.11 did); the app's bundle resolves net-imap 0.6.8 (the GHSA-vcgp-9326-pqcp floor 0.6.4.1), and the image carried both until chain 617's held review (2026-10-22) found the release record naming 0.5.15. Replacing Ruby's copy with 0.6.8 leaves one net-imap in the image."
+    },
+    "node_dist": {
+      "version": "20.20.2",
+      "sha256": "19e56f0825510207dd904f087fe52faa0a4eb6b2aab5f0ea7a33830d04888b8b",
+      "_note": "Asset build only, never in the image. package.json engines node >= 20.0.0, .nvmrc v20.9.0, upstream's Dockerfile.production NODE_MAJOR 20; 20.20.2 is the newest 20.x on nodejs.org (SHASUMS256.txt). yarn 1.19.1 comes from package.json packageManager via corepack (online vendor stage)."
+    },
+    "app_dir": "/usr/src/app",
+    "build_env": {
+      "BUNDLE_LOCKFILE": "Gemfile.lock",
+      "CANVAS_PINNED_GITHUB_GEMS": "skoji/gepub:f0647345b806d993c2e59a84b490fdcb21979dec"
+    },
+    "build_packages": [
+      "libpq-dev",
+      "libxml2-dev",
+      "libxslt1-dev",
+      "libxmlsec1-dev",
+      "libidn-dev",
+      "libicu-dev",
+      "libsqlite3-dev",
+      "shared-mime-info",
+      "git"
+    ],
+    "asset_packages": [
+      "python3",
+      "python-is-python3"
+    ],
+    "source_prep": [
+      "sed -i 's/^gem \"css_parser\", \"~> 2.0\"$/gem \"css_parser\", \"~> 3.3\"/' Gemfile.d/app.rb && grep -qx 'gem \"css_parser\", \"~> 3.3\"' Gemfile.d/app.rb",
+      "ruby -rbundler -e 'Bundler::Plugin.gemfile_install(Bundler.default_gemfile)' && grep -q '/usr/src/app/vendor/gems/bundler-multilock' .bundle/plugin/index"
+    ],
+    "asset_env": {
+      "RAILS_ENV": "production",
+      "COMPILE_ASSETS_NPM_INSTALL": "0",
+      "COMPILE_ASSETS_BRAND_CONFIGS": "0",
+      "COMPILE_ASSETS_API_DOCS": "0",
+      "COMPILE_ASSETS_STYLEGUIDE": "0",
+      "JS_BUILD_NO_FALLBACK": "1",
+      "SASS_STYLE": "compressed",
+      "RAILS_LOAD_ALL_LOCALES": "1",
+      "CANVAS_BUILD_CONCURRENCY": "2",
+      "COREPACK_ENABLE_DOWNLOAD_PROMPT": "0",
+      "NODE_OPTIONS": "--max-old-space-size=8192"
+    },
+    "asset_cmds": [
+      "test -z \"$(find gems/plugins -path '*/Gemfile.d/*' -type f ! -name _before.rb)\" && cp Gemfile.lock Gemfile.rails80.plugins.lock",
+      "corepack enable",
+      "yarn install --frozen-lockfile || yarn install --frozen-lockfile --network-concurrency 1",
+      "bin/rails canvas:compile_assets --trace"
+    ],
+    "app_prune": [
+      ".github",
+      "spec",
+      "tmp/cache",
+      "log/production.log",
+      "Gemfile.d/rubocop.rb.lock",
+      "gems/*/Gemfile.lock"
+    ],
+    "app_prune_cmds": [
+      "find . -path ./vendor -prune -o -name node_modules -type d -prune -exec rm -rf {} + && find . -path ./vendor -prune -o -name package.json -type f -exec rm -f {} + && ! find . -path ./vendor -prune -o -name package.json -print | grep -q ."
+    ],
+    "source_date_epoch_basis": "release-cut",
+    "commit_epoch": 1777557004
+  },
+  "binaries_from_source": null,
+  "runtime_packages": [
+    "curl",
+    "libpq5",
+    "libxml2",
+    "libxslt1.1",
+    "libxmlsec1t64",
+    "libxmlsec1t64-openssl",
+    "libidn12",
+    "libicu74",
+    "libsqlite3-0",
+    "shared-mime-info",
+    "postgresql-client-16",
+    "libreadline8t64"
+  ]
+}

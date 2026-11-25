@@ -1,0 +1,12 @@
+curl
+libpq5
+libxml2
+libxslt1.1
+libxmlsec1t64
+libxmlsec1t64-openssl
+libidn12
+libicu74
+libsqlite3-0
+shared-mime-info
+postgresql-client-16
+libreadline8t64

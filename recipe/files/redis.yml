@@ -1,0 +1,6 @@
+# ReadyStack: the Redis Canvas uses for its cache and data (ERB).
+# <% require "json" %>
+production:
+  url:
+    - <%= ENV.fetch("CANVAS_REDIS_URL", "redis://redis:6379/0").to_json %>
+  connect_timeout: 0.5

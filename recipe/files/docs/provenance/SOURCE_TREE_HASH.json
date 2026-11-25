@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "canvas",
+  "repo": "https://github.com/instructure/canvas-lms",
+  "ref": "release/2026-05-20.143",
+  "commit": "2e2b4a46d08e32667d4845f7b78e1214250345d3",
+  "tree_listing_sha256": "222ae1df10656048500098d09530d7337d8bb8fb99e7e3676629165870c2e1af",
+  "file_count": 22662
+}

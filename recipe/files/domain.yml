@@ -1,0 +1,5 @@
+# ReadyStack: the host name (and port) users reach Canvas at, and whether that is HTTPS (ERB).
+# <% require "json" %>
+production:
+  domain: <%= ENV.fetch("CANVAS_DOMAIN", "localhost:3000").to_json %>
+  ssl: <%= ENV.fetch("CANVAS_SSL", "true") == "true" %>

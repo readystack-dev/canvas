@@ -1,0 +1,5 @@
+# ReadyStack: the job worker container (command `jobs`) runs CANVAS_JOB_WORKERS worker processes on canvas_queue (ERB).
+production:
+  workers:
+  - queue: canvas_queue
+    workers: <%= Integer(ENV.fetch("CANVAS_JOB_WORKERS", "2")) %>

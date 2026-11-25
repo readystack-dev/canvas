@@ -1,0 +1,9 @@
+# ReadyStack: Canvas's encryption secrets, from the environment (ERB). CANVAS_ENCRYPTION_KEY is required (20 or more
+# characters) and must never change once data exists: Canvas encrypts stored secrets with it. CANVAS_JWT_ENCRYPTION_KEY
+# (exactly 64 characters) defaults to the SHA-256 hex digest of "canvas-jwt:" + CANVAS_ENCRYPTION_KEY.
+# <% require "json" %>
+production:
+  encryption_key: <%= ENV.fetch("CANVAS_ENCRYPTION_KEY", "").to_json %>
+  jwt_encryption_keys:
+    - <%= ENV.fetch("CANVAS_JWT_ENCRYPTION_KEY") { require "digest"; Digest::SHA256.hexdigest("canvas-jwt:" + ENV.fetch("CANVAS_ENCRYPTION_KEY", "")) }.to_json %>
+  lti_iss: <%= ENV.fetch("CANVAS_LTI_ISS", "https://canvas.instructure.com").to_json %>

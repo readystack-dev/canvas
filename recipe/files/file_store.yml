@@ -1,0 +1,5 @@
+# ReadyStack: uploaded files are stored on local disk under tmp/files (mount a volume at /usr/src/app/tmp/files and give
+# the web and the jobs container the same one), as upstream's example configures.
+production:
+  storage: local
+  path_prefix: tmp/files

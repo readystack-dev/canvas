@@ -1,0 +1,4 @@
+# ReadyStack: Rails logger (log/production.log and log/delayed_job.log are links to the container's output) (ERB).
+production:
+  logger: rails
+  log_level: <%= ENV.fetch("CANVAS_LOG_LEVEL", "info") %>

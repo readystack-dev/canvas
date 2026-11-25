@@ -1,0 +1,359 @@
+{
+ "schema": "readystack.recipe.v1",
+ "slug": "canvas",
+ "tag": "2026-05-20.143-CE-ubuntu24.04-r8",
+ "tarball": "ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r8.tar.gz",
+ "tarball_sha256": "8678c088e00a63a8b695e8987e2c01216efc91e26fea21a8944441ba5d617fd6",
+ "kit_root": "2026-05-20.143-CE-ubuntu24.04-r8",
+ "generated_at": "2026-11-22T06:16:33Z",
+ "generator": "KitForge release/recipe_publish.py",
+ "dockerfile": "Dockerfile.offline.pinned",
+ "build_script": "BUILD_OFFLINE.sh",
+ "preview_lines": 24,
+ "pins": {
+  "upstream": {
+   "repo": "https://github.com/instructure/canvas-lms",
+   "ref": "release/2026-05-20.143",
+   "commit": "2e2b4a46d08e32667d4845f7b78e1214250345d3",
+   "url": "https://github.com/instructure/canvas-lms/tree/2e2b4a46d08e32667d4845f7b78e1214250345d3",
+   "from": "docs/provenance/BUILD_RECIPE.json"
+  },
+  "fetches": [
+   {
+    "kind": "git",
+    "url": "https://github.com/instructure/canvas-lms",
+    "ref": "release/2026-05-20.143"
+   },
+   {
+    "kind": "http",
+    "url": "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.13.tar.gz"
+   },
+   {
+    "kind": "http",
+    "url": "https://cache.ruby-lang.org/pub/ruby/index.txt"
+   },
+   {
+    "kind": "http",
+    "url": "https://nodejs.org/dist/v20.20.2/node-v20.20.2-linux-x64.tar.gz"
+   },
+   {
+    "kind": "http",
+    "url": "https://nodejs.org/dist/v20.20.2/SHASUMS256.txt"
+   }
+  ],
+  "bases": [
+   {
+    "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+    "image": "ubuntu:24.04",
+    "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   }
+  ],
+  "toolchain": {
+   "buildkit": "moby/buildkit:v0.31.2",
+   "buildkit_image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0"
+  },
+  "build_method": "source-rebuild-ruby",
+  "source_date_epoch": 1795160997,
+  "source_date_epoch_utc": "2026-11-20T07:49:57Z",
+  "target": {
+   "image_manifest_digest": "sha256:d50facf13fdbc9ac472597f5da7aa13fcd75ae6db96326f4087ef9b680574d89",
+   "config_digest": "sha256:1ce44b07eb8f2acfebfc59160732530bffe2efe197c955c484410a2945585c14",
+   "image": "readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r8"
+  },
+  "checksummed_files": 50758
+ },
+ "files": [
+  {
+   "path": "BASES.tsv",
+   "size": 121,
+   "sha256": "c506d719c30d576fe42dd46d1cf2a9a05f4f3f364b41e02e4ffad3a1fc19500e",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "BUILD_OFFLINE.sh",
+   "size": 8856,
+   "sha256": "6ab4f08a6ec775b32d854f03413b30ecfe555ddba78cf0de956235f5a2a39542",
+   "lines": 162,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "CHECKSUMS.sha256",
+   "size": 7733169,
+   "sha256": "391c9ed44f923ba4ed9bbc3538e1397aeeaea18316fbd46a6787b0dd4ca70e5a",
+   "lines": 50758,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "DOCKERFILE_NAME.txt",
+   "size": 26,
+   "sha256": "9aadd1ede68e016a6f163c97befc5ff2fcdc8ebd4f84b108dba63cb195fa8c84",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "Dockerfile",
+   "size": 7933,
+   "sha256": "957a98bc30f2dd6e6844161668fe31e59384e15daf6003c10484ca81c7c100db",
+   "lines": 95,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline",
+   "size": 7933,
+   "sha256": "957a98bc30f2dd6e6844161668fe31e59384e15daf6003c10484ca81c7c100db",
+   "lines": 95,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline.pinned",
+   "size": 7933,
+   "sha256": "957a98bc30f2dd6e6844161668fe31e59384e15daf6003c10484ca81c7c100db",
+   "lines": 95,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "Dockerfile.vendor",
+   "size": 8129,
+   "sha256": "7c6bd8817887456a6efd98ddd117d4937cc7d7be72b17b63fa8e60c15d2cb1df",
+   "lines": 81,
+   "public": "account"
+  },
+  {
+   "path": "FILE_MODES.tsv",
+   "size": 5182515,
+   "sha256": "1599694fd21826c4f8ba322e54de37e4ee6ade7c7ebc40a48bb3ad67e6efa6bc",
+   "lines": 60474,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "MANIFEST.txt",
+   "size": 4281655,
+   "sha256": "b8b4da33c7fab05ac542e76395e2d66cc8be91a1b239119fb1c6420c00e82beb",
+   "lines": 50760,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "README.md",
+   "size": 3347,
+   "sha256": "7ebfc74bd4baa2164c7bc07a6fe9c71e478471f40b9f4fc3a4874c8bb49ba660",
+   "lines": 39,
+   "public": "account"
+  },
+  {
+   "path": "SOURCE_DATE_EPOCH.txt",
+   "size": 11,
+   "sha256": "79f3aadd9949cbfaaaa8cfb9e3d372d53a1215f7008bb572c9bb2e27a09dd64c",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "TARGET_DIGEST.txt",
+   "size": 449,
+   "sha256": "d576fafd30bc5bb699e4b6283771f38e610e986d0abd85bfd6f94bd8f1499aa6",
+   "lines": 8,
+   "public": "full"
+  },
+  {
+   "path": "VERIFY_OFFLINE.sh",
+   "size": 10153,
+   "sha256": "3e8184ea230cfd8f41f977e26be6bf7bd03112c396c517837ce0c7de4f7399dd",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "cache_store.yml",
+   "size": 142,
+   "sha256": "4092404928f2db39f69d0fcdc7859b4c42a9b5dacc3ff2f4ed134fcc669a5da5",
+   "lines": 3,
+   "public": "account"
+  },
+  {
+   "path": "canvas-entrypoint.sh",
+   "size": 3896,
+   "sha256": "49a7ba66e8772d70f866c6628d7fd75a4faccd6f89a927ae5cf130fae4497af3",
+   "lines": 94,
+   "public": "account"
+  },
+  {
+   "path": "database.yml",
+   "size": 550,
+   "sha256": "491f3529825a55cdaaf23d7d8741027b94f7bccc6732f0b62d136ba61bfab1d6",
+   "lines": 11,
+   "public": "account"
+  },
+  {
+   "path": "delayed_jobs.yml",
+   "size": 233,
+   "sha256": "a222ef2984140ad8e8cbf5b6d71a156984ba5a8d215708cc8a1fb19a3c1b0671",
+   "lines": 5,
+   "public": "account"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "size": 2695,
+   "sha256": "aa33c1ca9f5bb605bf074b94ba06f6e12aa2d00d4e686397e237d1beeecd82b4",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "docs/REBUILD.md",
+   "size": 6217,
+   "sha256": "93a60ea54f6ad40157e15ed55c56e8fd38714c0aa1552d33f9d4237006f2579b",
+   "lines": 62,
+   "public": "account"
+  },
+  {
+   "path": "docs/VERIFY.md",
+   "size": 2066,
+   "sha256": "dce1688d0dbd29179308cc0f162aef24c518f4f2360c899c6c4cfab2a34b8711",
+   "lines": 34,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/BASE_IMAGE_DIGESTS.lock",
+   "size": 49,
+   "sha256": "db1a64ed3312ee23b572ca256e5580eba0975a4db9f79c6d7b56869ab7a54793",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/BUILD_RECIPE.json",
+   "size": 6050,
+   "sha256": "0fdbccc70c7b4ddf2871455961810bf604f16172b5d2608146790ac1cc6c633f",
+   "lines": 101,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/CUSTODY_INPUTS.json",
+   "size": 669,
+   "sha256": "27e40b73e18d69ef88b8046c5dd9e8b2f5c926e4eff2e5d0b2d68ab35c1a9900",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
+   "size": 266632,
+   "sha256": "c2d9b38b00e923c82d58c92728a771d9eaa3ee7d1ae3528210c75887a305d50a",
+   "lines": 5007,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "docs/provenance/SOURCE_TREE_HASH.json",
+   "size": 328,
+   "sha256": "642cb5fb3665c183a4fd9d31948e2ed17e5a7c55c5bdcbba78563d6ed5e5375d",
+   "lines": 9,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/SYSTEM_PINNING.lock",
+   "size": 152,
+   "sha256": "762ec5577126741cb61c0220489ba366c3e589bee8f358736caf1e540b724d72",
+   "lines": 12,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/TOOLCHAIN.lock",
+   "size": 6547,
+   "sha256": "bb416a50c775b25f743ce171b71a48848f758c514883c4fbf971f57c17ae2787",
+   "lines": 243,
+   "public": "account"
+  },
+  {
+   "path": "domain.yml",
+   "size": 256,
+   "sha256": "6a6cb8414ec0b326e2c6632b5ac549a66a1b5a71f111a292c1ce5fde7a55e0f4",
+   "lines": 5,
+   "public": "account"
+  },
+  {
+   "path": "file_store.yml",
+   "size": 257,
+   "sha256": "dab0b5ba50ad8b9a15814c3d0d4672349eb25c75bf9d7f67dfdb3e7d575e4e61",
+   "lines": 5,
+   "public": "account"
+  },
+  {
+   "path": "kitforge-ruby-gems.rb",
+   "size": 5570,
+   "sha256": "7f6627293be0debc7270e65cfe3559a29d3d95791843866fe1065570a460dd09",
+   "lines": 102,
+   "public": "account"
+  },
+  {
+   "path": "logging.yml",
+   "size": 201,
+   "sha256": "9c408fac77b243193efce724a74879d0e17a8b1be9b83ad1e9cc10ad812d479a",
+   "lines": 4,
+   "public": "account"
+  },
+  {
+   "path": "outgoing_mail.yml",
+   "size": 967,
+   "sha256": "1b941dc9c3bc3fd6b039c00919edc5544f054dd434488b05408437bb1a297c80",
+   "lines": 14,
+   "public": "account"
+  },
+  {
+   "path": "production-local.rb",
+   "size": 747,
+   "sha256": "4959f8e39478f1fd8e0ee37a2bcf531a80ea6688c374d4c96a9bd94a8d033443",
+   "lines": 9,
+   "public": "account"
+  },
+  {
+   "path": "rebuild.json",
+   "size": 1227,
+   "sha256": "64ad9aac45db02df4995ac04425ca9e9e03bc68a95f5396ce8f8282db70d0522",
+   "lines": 31,
+   "public": "account"
+  },
+  {
+   "path": "redis.yml",
+   "size": 206,
+   "sha256": "eb6258411b4ac81ca4eab114afa37eae9f4574484ad2aa423416e689575cdf73",
+   "lines": 6,
+   "public": "account"
+  },
+  {
+   "path": "security.yml",
+   "size": 721,
+   "sha256": "5a87984b3e48bd184c26e6c8a1aee5c8b0466f2ebd91558cc44deb6bfd75c98c",
+   "lines": 9,
+   "public": "account"
+  },
+  {
+   "path": "toolchain/BUILDKIT_TAG.txt",
+   "size": 22,
+   "sha256": "fcd530eeb02b063d2f047adad6eef896422a8e8d558513e5f09b2a262be32573",
+   "lines": 1,
+   "public": "full"
+  }
+ ],
+ "skipped": [],
+ "kit_adds": {
+  "bases": {
+   "files": 5,
+   "bytes": 29796854
+  },
+  "docs": {
+   "files": 22725,
+   "bytes": 471857123
+  },
+  "toolchain": {
+   "files": 1,
+   "bytes": 111529472
+  },
+  "vendored": {
+   "files": 27991,
+   "bytes": 1074327826
+  }
+ },
+ "redacted_files": 0
+}

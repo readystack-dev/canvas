@@ -1,0 +1,3 @@
+# ReadyStack: Rails cache in the Redis named in config/redis.yml (upstream's recommended setup).
+production:
+  cache_store: redis_cache_store

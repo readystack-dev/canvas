@@ -1,0 +1,11 @@
+# ReadyStack: the database Canvas connects to, from the environment (ERB, evaluated when Canvas starts).
+# <% require "json" %>
+production:
+  adapter: postgresql
+  encoding: utf8
+  host: <%= ENV.fetch("CANVAS_DATABASE_HOST", "db").to_json %>
+  port: <%= Integer(ENV.fetch("CANVAS_DATABASE_PORT", "5432")) %>
+  database: <%= ENV.fetch("CANVAS_DATABASE_NAME", "canvas_production").to_json %>
+  username: <%= ENV.fetch("CANVAS_DATABASE_USERNAME", "canvas").to_json %>
+  password: <%= ENV.fetch("CANVAS_DATABASE_PASSWORD", "").to_json %>
+  timeout: 5000

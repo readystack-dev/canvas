@@ -1,0 +1,243 @@
+{
+  "apt_refresh": [
+    {
+      "min_version": "2.8.4ubuntu0.1",
+      "package": "apt",
+      "reason": "CVE-2026-109518: apt 2.8.3 -> 2.8.4ubuntu0.1"
+    },
+    {
+      "min_version": "2.8.4ubuntu0.1",
+      "package": "libapt-pkg6.0t64",
+      "reason": "CVE-2026-109518: libapt-pkg6.0t64 2.8.3 -> 2.8.4ubuntu0.1"
+    },
+    {
+      "min_version": "10.42-4ubuntu2.2",
+      "package": "libpcre2-8-0",
+      "reason": "CVE-2026-103111, CVE-2026-86145, CVE-2026-89156, CVE-2026-89157 \u2026: libpcre2-8-0 10.42-4ubuntu2.1 -> 10.42-4ubuntu2.2"
+    }
+  ],
+  "build_method": "source-rebuild-ruby",
+  "chain_id": 1147,
+  "dep_bumps": [
+    {
+      "level": "major",
+      "module": "css_parser",
+      "to": "3.3.0"
+    },
+    {
+      "level": "patch",
+      "module": "activestorage",
+      "to": "8.0.5.1"
+    },
+    {
+      "level": "patch",
+      "module": "concurrent-ruby",
+      "to": "1.3.7"
+    },
+    {
+      "level": "patch",
+      "module": "crass",
+      "to": "1.0.7"
+    },
+    {
+      "level": "minor",
+      "module": "datadog",
+      "to": "2.32.0"
+    },
+    {
+      "level": "patch",
+      "module": "faraday",
+      "to": "2.14.3"
+    },
+    {
+      "level": "patch",
+      "module": "graphql",
+      "to": "2.5.26"
+    },
+    {
+      "level": "minor",
+      "module": "jwt",
+      "to": "3.2.0"
+    },
+    {
+      "level": "patch",
+      "module": "loofah",
+      "to": "2.25.2"
+    },
+    {
+      "level": "patch",
+      "module": "mail",
+      "to": "2.9.1"
+    },
+    {
+      "level": "patch",
+      "module": "net-imap",
+      "to": "0.6.4.1"
+    },
+    {
+      "level": "patch",
+      "module": "nokogiri",
+      "to": "1.19.4"
+    },
+    {
+      "level": "patch",
+      "module": "oauth",
+      "to": "1.1.6"
+    },
+    {
+      "level": "patch",
+      "module": "oauth2",
+      "to": "2.0.22"
+    },
+    {
+      "level": "patch",
+      "module": "oj",
+      "to": "3.17.3"
+    },
+    {
+      "level": "patch",
+      "module": "puma",
+      "to": "7.2.1"
+    },
+    {
+      "level": "patch",
+      "module": "rails-html-sanitizer",
+      "to": "1.7.1"
+    },
+    {
+      "level": "minor",
+      "module": "rubyzip",
+      "to": "3.4.0"
+    },
+    {
+      "level": "patch",
+      "module": "sqlite3",
+      "to": "2.9.6"
+    },
+    {
+      "level": "patch",
+      "module": "websocket-driver",
+      "to": "0.8.2"
+    },
+    {
+      "level": "minor",
+      "module": "brotli",
+      "to": "0.9.2"
+    },
+    {
+      "level": "patch",
+      "module": "rack",
+      "to": "3.2.8",
+      "why": "GHSA-5v64-555j-wjxm (CVE-2026-125111, high): rack 3.2.6 -> 3.2.8, the fixed 3.2 release (OSV; the CVE tick of 2026-11-10T21:50Z on 2026-05-20.143-CE-ubuntu24.04-r4)."
+    },
+    {
+      "level": "patch",
+      "module": "msgpack",
+      "to": "1.8.7",
+      "why": "GHSA-73v3-wf97-vpgj: msgpack 1.8.0 -> 1.8.7"
+    }
+  ],
+  "expected_residuals": [],
+  "images": [
+    {
+      "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+      "ref": "ubuntu:24.04",
+      "role": "base"
+    }
+  ],
+  "mod_replaces": [],
+  "runtime_packages": [
+    "curl",
+    "libpq5",
+    "libxml2",
+    "libxslt1.1",
+    "libxmlsec1t64",
+    "libxmlsec1t64-openssl",
+    "libidn12",
+    "libicu74",
+    "libsqlite3-0",
+    "shared-mime-info",
+    "postgresql-client-16",
+    "libreadline8t64"
+  ],
+  "schema": "kitforge.toolchain_lock.v1",
+  "slug": "canvas",
+  "source": {
+    "app_dir": "/usr/src/app",
+    "app_prune": [
+      ".github",
+      "spec",
+      "tmp/cache",
+      "log/production.log",
+      "Gemfile.d/rubocop.rb.lock",
+      "gems/*/Gemfile.lock"
+    ],
+    "app_prune_cmds": [
+      "find . -path ./vendor -prune -o -name node_modules -type d -prune -exec rm -rf {} + && find . -path ./vendor -prune -o -name package.json -type f -exec rm -f {} + && ! find . -path ./vendor -prune -o -name package.json -print | grep -q ."
+    ],
+    "asset_cmds": [
+      "test -z \"$(find gems/plugins -path '*/Gemfile.d/*' -type f ! -name _before.rb)\" && cp Gemfile.lock Gemfile.rails80.plugins.lock",
+      "corepack enable",
+      "yarn install --frozen-lockfile || yarn install --frozen-lockfile --network-concurrency 1",
+      "bin/rails canvas:compile_assets --trace"
+    ],
+    "asset_env": {
+      "CANVAS_BUILD_CONCURRENCY": "2",
+      "COMPILE_ASSETS_API_DOCS": "0",
+      "COMPILE_ASSETS_BRAND_CONFIGS": "0",
+      "COMPILE_ASSETS_NPM_INSTALL": "0",
+      "COMPILE_ASSETS_STYLEGUIDE": "0",
+      "COREPACK_ENABLE_DOWNLOAD_PROMPT": "0",
+      "JS_BUILD_NO_FALLBACK": "1",
+      "NODE_OPTIONS": "--max-old-space-size=8192",
+      "RAILS_ENV": "production",
+      "RAILS_LOAD_ALL_LOCALES": "1",
+      "SASS_STYLE": "compressed"
+    },
+    "asset_packages": [
+      "python3",
+      "python-is-python3"
+    ],
+    "build_env": {
+      "BUNDLE_LOCKFILE": "Gemfile.lock",
+      "CANVAS_PINNED_GITHUB_GEMS": "skoji/gepub:f0647345b806d993c2e59a84b490fdcb21979dec"
+    },
+    "build_packages": [
+      "libpq-dev",
+      "libxml2-dev",
+      "libxslt1-dev",
+      "libxmlsec1-dev",
+      "libidn-dev",
+      "libicu-dev",
+      "libsqlite3-dev",
+      "shared-mime-info",
+      "git"
+    ],
+    "commit": "2e2b4a46d08e32667d4845f7b78e1214250345d3",
+    "commit_epoch": 1777557004,
+    "node_dist": {
+      "sha256": "19e56f0825510207dd904f087fe52faa0a4eb6b2aab5f0ea7a33830d04888b8b",
+      "version": "20.20.2"
+    },
+    "ref": "release/2026-05-20.143",
+    "repo": "https://github.com/instructure/canvas-lms",
+    "ruby": {
+      "gem_updates": [
+        {
+          "name": "net-imap",
+          "version": "0.6.8"
+        }
+      ],
+      "sha256": "d0d3bf3dd8c224a3c3b7ecd816a0f1b2cbcf4f87b5afcbdbe91d3fef177f351a",
+      "version": "3.4.13"
+    },
+    "source_date_epoch": 1795160997,
+    "source_date_epoch_basis": "release-cut",
+    "source_date_epoch_provenance": "the time release 2026-05-20.143-CE-ubuntu24.04-r8 was cut (2026-11-20T07:49:57Z), by scripts/retarget.py --rev-bump: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 2e2b4a46d08e, dated 2026-04-30T13:50:04Z (source.commit_epoch).",
+    "source_prep": [
+      "sed -i 's/^gem \"css_parser\", \"~> 2.0\"$/gem \"css_parser\", \"~> 3.3\"/' Gemfile.d/app.rb && grep -qx 'gem \"css_parser\", \"~> 3.3\"' Gemfile.d/app.rb",
+      "ruby -rbundler -e 'Bundler::Plugin.gemfile_install(Bundler.default_gemfile)' && grep -q '/usr/src/app/vendor/gems/bundler-multilock' .bundle/plugin/index"
+    ]
+  },
+  "version": "2026-05-20.143"
+}
