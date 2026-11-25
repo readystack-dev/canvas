@@ -9,7 +9,7 @@ RUN --mount=type=bind,source=vendored/debs,target=/tmp/debs --mount=type=bind,so
     dpkg --configure -a && bad= && for d in "$@"; do p=$(dpkg-deb -f "$d" Package) v=$(dpkg-deb -f "$d" Version); \
       case "$(dpkg-query -W -f='${Version} ${db:Status-Abbrev}' "$p" 2>/dev/null)" in "$v ii"*) ;; *) bad="$bad $p=$v" ;; esac; done && \
     { [ -z "$bad" ] || { echo "vendored debs not installed at their vendored version:$bad" >&2; false; }; }
-ARG SOURCE_DATE_EPOCH=1795160997
+ARG SOURCE_DATE_EPOCH=1795543194
 ENV SOURCE_DATE_EPOCH=${SOURCE_DATE_EPOCH}
 COPY vendored/ruby/ /tmp/ruby/
 RUN cd /tmp/ruby && echo 'd0d3bf3dd8c224a3c3b7ecd816a0f1b2cbcf4f87b5afcbdbe91d3fef177f351a  ruby-3.4.13.tar.gz' | sha256sum -c - && \
@@ -41,7 +41,7 @@ RUN --mount=type=bind,source=vendored/debs,target=/tmp/debs \
     { [ -z "$bad" ] || { echo "vendored debs not installed at their vendored version:$bad" >&2; false; }; } && \
     rm -rf /var/lib/apt/lists/* \
            /var/log/dpkg.log /var/log/alternatives.log /var/log/apt /var/cache/ldconfig/aux-cache /var/cache/fontconfig
-ARG SOURCE_DATE_EPOCH=1795160997
+ARG SOURCE_DATE_EPOCH=1795543194
 RUN groupadd -g 9999 canvas && useradd -u 9999 -g canvas -s /bin/sh -d /home/canvas -m canvas && \
     : "${SOURCE_DATE_EPOCH:?SOURCE_DATE_EPOCH must be set for a reproducible build}" && \
     sed -ri "s/^([^:]*:[^:]*):[0-9]*:/\1:$((SOURCE_DATE_EPOCH/86400)):/" /etc/shadow && \
@@ -77,7 +77,7 @@ RUN ln -sf /dev/stdout /usr/src/app/log/production.log && ln -sf /dev/stdout /us
     ruby --version | grep -qF 'ruby 3.4.13'
 LABEL org.opencontainers.image.title="Canvas LMS"
 LABEL org.opencontainers.image.description="Canvas LMS built from source on Ubuntu 24.04: non-root Puma web server; the same image runs the delayed_job worker; needs PostgreSQL and Redis"
-LABEL org.opencontainers.image.version="2026-05-20.143-CE-ubuntu24.04-r8"
+LABEL org.opencontainers.image.version="2026-05-20.143-CE-ubuntu24.04-r9"
 LABEL org.opencontainers.image.revision="2e2b4a46d08e32667d4845f7b78e1214250345d3"
 LABEL org.opencontainers.image.licenses="AGPL-3.0-only"
 LABEL org.opencontainers.image.source="https://github.com/instructure/canvas-lms"

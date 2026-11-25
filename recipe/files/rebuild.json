@@ -16,16 +16,16 @@
     "context": ".",
     "dockerfile": "Dockerfile.offline.pinned",
     "mtime_policy": "clamp",
-    "source_date_epoch": 1795160997,
-    "tree_hash": "sha256:e817006c8b96b5f24da852dd230c5496b2ccba0f80508059154cb8e761761ec1"
+    "source_date_epoch": 1795543194,
+    "tree_hash": "sha256:0445d17d0dddfa13d2423883db5defb80966c1d4ead29bfc999ff134a7963ca5"
   },
   "probe": {
     "skip": "this image needs db, redis (not part of this archive); boot it with your own services as the admin handbook describes"
   },
   "schema": "readystack-rebuild-bundle/v0.1",
   "subject": {
-    "config_digest": "sha256:1ce44b07eb8f2acfebfc59160732530bffe2efe197c955c484410a2945585c14",
-    "image_manifest_digest": "sha256:d50facf13fdbc9ac472597f5da7aa13fcd75ae6db96326f4087ef9b680574d89",
-    "name": "docker.io/readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r8"
+    "config_digest": "sha256:83cfcb4203b6a1ca32b6a317f904c76c9b81c2818946e886e6dada595242ac26",
+    "image_manifest_digest": "sha256:80a5bbec80508439c107aec0ee2e16fb81531278c4c4118a6eb4714e74fb8d98",
+    "name": "docker.io/readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r9"
   }
 }
