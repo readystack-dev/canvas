@@ -19,10 +19,30 @@
       "min_version": "0.10.6-2ubuntu0.6",
       "package": "libssh-4",
       "reason": "USN-9187-1: libssh-4 0.10.6-2ubuntu0.5 -> 0.10.6-2ubuntu0.6"
+    },
+    {
+      "min_version": "1.20.1-6ubuntu2.12",
+      "package": "libgssapi-krb5-2",
+      "reason": "USN-9202-1: libgssapi-krb5-2 1.20.1-6ubuntu2.10 -> 1.20.1-6ubuntu2.12"
+    },
+    {
+      "min_version": "1.20.1-6ubuntu2.12",
+      "package": "libk5crypto3",
+      "reason": "USN-9202-1: libk5crypto3 1.20.1-6ubuntu2.10 -> 1.20.1-6ubuntu2.12"
+    },
+    {
+      "min_version": "1.20.1-6ubuntu2.12",
+      "package": "libkrb5-3",
+      "reason": "USN-9202-1: libkrb5-3 1.20.1-6ubuntu2.10 -> 1.20.1-6ubuntu2.12"
+    },
+    {
+      "min_version": "1.20.1-6ubuntu2.12",
+      "package": "libkrb5support0",
+      "reason": "USN-9202-1: libkrb5support0 1.20.1-6ubuntu2.10 -> 1.20.1-6ubuntu2.12"
     }
   ],
   "build_method": "source-rebuild-ruby",
-  "chain_id": 1231,
+  "chain_id": 1288,
   "dep_bumps": [
     {
       "level": "major",
@@ -236,9 +256,9 @@
       "sha256": "d0d3bf3dd8c224a3c3b7ecd816a0f1b2cbcf4f87b5afcbdbe91d3fef177f351a",
       "version": "3.4.13"
     },
-    "source_date_epoch": 1795543194,
+    "source_date_epoch": 1795672787,
     "source_date_epoch_basis": "release-cut",
-    "source_date_epoch_provenance": "the time release 2026-05-20.143-CE-ubuntu24.04-r9 was cut (2026-11-24T17:59:54Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 2e2b4a46d08e, dated 2026-04-30T13:50:04Z (source.commit_epoch).",
+    "source_date_epoch_provenance": "the time release 2026-05-20.143-CE-ubuntu24.04-r10 was cut (2026-11-26T05:59:47Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 2e2b4a46d08e, dated 2026-04-30T13:50:04Z (source.commit_epoch).",
     "source_prep": [
       "sed -i 's/^gem \"css_parser\", \"~> 2.0\"$/gem \"css_parser\", \"~> 3.3\"/' Gemfile.d/app.rb && grep -qx 'gem \"css_parser\", \"~> 3.3\"' Gemfile.d/app.rb",
       "ruby -rbundler -e 'Bundler::Plugin.gemfile_install(Bundler.default_gemfile)' && grep -q '/usr/src/app/vendor/gems/bundler-multilock' .bundle/plugin/index"

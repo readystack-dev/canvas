@@ -6,13 +6,13 @@
 
 # Canvas LMS: ReadyStack build kit
 
-The offline build kit for the Docker image `readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r9`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
+The offline build kit for the Docker image `readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r10`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
 
-- Release: [2026-05-20.143-CE-ubuntu24.04-r9](https://github.com/readystack-dev/canvas/releases/tag/2026-05-20.143-CE-ubuntu24.04-r9)
-- Image: [`docker.io/readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r9`](https://hub.docker.com/r/readystack/canvas/tags), manifest digest `sha256:80a5bbec80508439c107aec0ee2e16fb81531278c4c4118a6eb4714e74fb8d98`
+- Release: [2026-05-20.143-CE-ubuntu24.04-r10](https://github.com/readystack-dev/canvas/releases/tag/2026-05-20.143-CE-ubuntu24.04-r10)
+- Image: [`docker.io/readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r10`](https://hub.docker.com/r/readystack/canvas/tags), manifest digest `sha256:2547c4f3502c230a5eaf1bf23e88043ad73016317ac9404ee68ebbc90ad46223`
 - Product page: https://readystack.dev/products/canvas
 - Source and build recipe: https://readystack.dev/products/canvas/recipe
-- Build trail: https://readystack.dev/products/canvas/trail/2026-05-20.143-CE-ubuntu24.04-r9
+- Build trail: https://readystack.dev/products/canvas/trail/2026-05-20.143-CE-ubuntu24.04-r10
 - Defects: this repository's Issues (defects recorded from 25 November 2026 on) and https://readystack.dev/defects.html?product=canvas
 
 ## The image
@@ -31,12 +31,12 @@ From the upstream project's own description: https://github.com/instructure/canv
 
 ## This release
 
-- Docker Scout policy grade at release: **A** (94%), graded 2026-11-25 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
+- Docker Scout policy grade at release: **A** (94%), graded 2026-11-27 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
   - Docker Scout counts 119 packages with copyleft licences (AGPL, GPL, LGPL, MPL), 111 of them operating-system packages (it counts only packages whose licence it can read; the SBOM lists every component). AGPL: academic_benchmarks.
 - Signed with ReadyStack's release key (fingerprint `04daa92344a52dbc`): https://readystack.dev/keys/cosign.pub.
 - Runs as a non-root user (`canvas`).
 - Attestations on the image: an SPDX SBOM and SLSA provenance v1.
-- Rebuilt from this kit with network egress blocked on 2026-11-25; the rebuilt image digest is the published one.
+- Rebuilt from this kit with network egress blocked on 2026-11-27; the rebuilt image digest is the published one.
 - Base: Ubuntu 24.04.
 
 The current grade, measured again every day, is on https://readystack.dev/products/canvas.
@@ -45,7 +45,7 @@ Canvas LMS is distributed under its upstream licence (AGPL-3.0-only); the kit co
 
 ## Download
 
-From the [2026-05-20.143-CE-ubuntu24.04-r9 release](https://github.com/readystack-dev/canvas/releases/tag/2026-05-20.143-CE-ubuntu24.04-r9): `ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r9.tar.gz` (964.8 MB), SHA-256 `a847ca58da07fbd5c3b0fc197bf10b60c0bd7961b7869479d681b05dc446dfb6`.
+From the [2026-05-20.143-CE-ubuntu24.04-r10 release](https://github.com/readystack-dev/canvas/releases/tag/2026-05-20.143-CE-ubuntu24.04-r10): `ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r10.tar.gz` (964.8 MB), SHA-256 `e1da43d0366b9285f97a09516de743c058a1cdad53e54597e4fb94a8bc0dbb7e`.
 
 ```sh
 sha256sum --check --ignore-missing SHA256SUMS
@@ -57,18 +57,18 @@ The rebuild statement is signed with the ReadyStack release key. Check the signa
 
 ```sh
 cosign verify-blob --key https://readystack.dev/keys/cosign.pub \
-  --bundle ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r9.rebuild.json.sigstore ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r9.rebuild.json
+  --bundle ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r10.rebuild.json.sigstore ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r10.rebuild.json
 ```
 
 Unpack with `-p` so file modes are kept, then follow the kit's own README.md and docs/REBUILD.md:
 
 ```sh
-tar -xpzf ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r9.tar.gz
-cd 2026-05-20.143-CE-ubuntu24.04-r9
+tar -xpzf ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r10.tar.gz
+cd 2026-05-20.143-CE-ubuntu24.04-r10
 less README.md docs/REBUILD.md
 ```
 
-The build trail (`ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r9.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
+The build trail (`ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r10.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
 
 ## This repository
 

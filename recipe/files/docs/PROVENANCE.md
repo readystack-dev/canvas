@@ -1,4 +1,4 @@
-# Provenance — Canvas LMS (`2026-05-20.143-CE-ubuntu24.04-r9`)
+# Provenance — Canvas LMS (`2026-05-20.143-CE-ubuntu24.04-r10`)
 
 Every item below is copied from a record in this archive; the record is named in brackets.
 
@@ -13,24 +13,24 @@ Every item below is copied from a record in this archive; the record is named in
 
 - Method: `source-rebuild-ruby`; base image `ubuntu:24.04`
 - Compiled with `--network=none` from vendored source, dependencies and base images; BuildKit pinned to `moby/buildkit:v0.31.2` (shipped in `toolchain/`).
-- SOURCE_DATE_EPOCH: `1795543194` [`SOURCE_DATE_EPOCH.txt`]
+- SOURCE_DATE_EPOCH: `1795672787` [`SOURCE_DATE_EPOCH.txt`]
 - Frozen inputs: [`docs/provenance/FREEZE_MANIFEST.json`], build recipe: [`docs/provenance/BUILD_RECIPE.json`].
 
 ## Output
 
-- Published image: `readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r9` — index digest `sha256:3c1d45a9fd1a72f2d1d0826ec42a94bf949816f3fd2d9398f60f721a92fb278e` [`docs/provenance/LOCKED_DIGEST.txt`]
-- linux/amd64 image digest `sha256:80a5bbec80508439c107aec0ee2e16fb81531278c4c4118a6eb4714e74fb8d98` — reproduced from this archive before publishing [`docs/provenance/REPRO_VERIFICATION.json`].
+- Published image: `readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r10` — index digest `sha256:e24a6b596412136d3f6fc82ee2b7ec452470b23218288851d112a5f5158073d7` [`docs/provenance/LOCKED_DIGEST.txt`]
+- linux/amd64 image digest `sha256:2547c4f3502c230a5eaf1bf23e88043ad73016317ac9404ee68ebbc90ad46223` — reproduced from this archive before publishing [`docs/provenance/REPRO_VERIFICATION.json`].
 
 ## Attestations and signature
 
 - SBOM + SLSA provenance attached to the image: attached: an SPDX SBOM and SLSA v1 provenance [`docs/provenance/SCOUT_VERDICT.json`]
-- cosign signature by the ReadyStack release key: verified before publishing. Check it: `cosign verify --key https://readystack.dev/keys/cosign.pub readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r9`
+- cosign signature by the ReadyStack release key: verified before publishing. Check it: `cosign verify --key https://readystack.dev/keys/cosign.pub readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r10`
 
 ## Pinned inputs, and why
 
-- 43 pinned inputs, each with where it came from, why this one, how it was checked and when it was decided: `docs/PINS.md` [`docs/provenance/PINS.json`] (upstream source 2, base and build images 1, image digests 1, language runtimes and toolchains 2, dependency versions readystack sets 28, pins in the kit's dockerfiles 4, readystack's build engine 1, dependencies upstream chose 2, services the release checks run beside 2).
+- 47 pinned inputs, each with where it came from, why this one, how it was checked and when it was decided: `docs/PINS.md` [`docs/provenance/PINS.json`] (upstream source 2, base and build images 1, image digests 1, language runtimes and toolchains 2, dependency versions readystack sets 32, pins in the kit's dockerfiles 4, readystack's build engine 1, dependencies upstream chose 2, services the release checks run beside 2).
 
 ## Build trail
 
-- How this release passed through the ReadyStack harness, record by record (every chain, drive, stage, review round, defect and check, each naming the record it is copied from): `ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r9.trail.json`, published beside this archive and signed with the release key (`ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r9.trail.json.sigstore`), and readable at https://readystack.dev/products/canvas/trail/2026-05-20.143-CE-ubuntu24.04-r9.
+- How this release passed through the ReadyStack harness, record by record (every chain, drive, stage, review round, defect and check, each naming the record it is copied from): `ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r10.trail.json`, published beside this archive and signed with the release key (`ReadyStack-canvas-2026-05-20.143-CE-ubuntu24.04-r10.trail.json.sigstore`), and readable at https://readystack.dev/products/canvas/trail/2026-05-20.143-CE-ubuntu24.04-r10.
 

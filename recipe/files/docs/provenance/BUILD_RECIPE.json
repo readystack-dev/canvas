@@ -1,14 +1,14 @@
 {
   "schema": "kitforge.build_recipe.v1",
   "slug": "canvas",
-  "image": "readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r9",
+  "image": "readystack/canvas:2026-05-20.143-CE-ubuntu24.04-r10",
   "build_method": "source-rebuild-ruby",
   "source": {
     "repo": "https://github.com/instructure/canvas-lms",
     "ref": "release/2026-05-20.143",
     "commit": "2e2b4a46d08e32667d4845f7b78e1214250345d3",
-    "source_date_epoch": 1795543194,
-    "source_date_epoch_provenance": "the time release 2026-05-20.143-CE-ubuntu24.04-r9 was cut (2026-11-24T17:59:54Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 2e2b4a46d08e, dated 2026-04-30T13:50:04Z (source.commit_epoch).",
+    "source_date_epoch": 1795672787,
+    "source_date_epoch_provenance": "the time release 2026-05-20.143-CE-ubuntu24.04-r10 was cut (2026-11-26T05:59:47Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 2e2b4a46d08e, dated 2026-04-30T13:50:04Z (source.commit_epoch).",
     "_version_note": "Upstream publishes no GitHub release and no semver tag after v5.14.2 (2025-01-03). Its deployments are tagged release/<date>.<n>; the newest (2026-10-22) is release/2026-05-20.143, tag object 0e87d5c6 -> commit 2e2b4a46, which is also the head of branch stable/2026-05-20, upstream's newest stable/ branch. master's head (1c9f0bb, 2026-04-30) is the development line of the same day. The repository has had no push since 2026-04-30 (GitHub pushed_at). Version string 2026-05-20.143 names that tag.",
     "ruby": {
       "version": "3.4.13",
